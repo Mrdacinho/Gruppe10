@@ -5,11 +5,11 @@
    
   if (isset($_POST['product']) && isset($_POST['location']) ) {
 
-    //clear the session so we don't have the array of values to show the single item instead
-    // remove all session variables
+    // Clear session slik at vi ikke har utvalget av verdier til å vise enkeltelementet i stedet
+    // Fjern alle session variabler
       session_unset();
 
-      // destroy the session
+      // destroy session
       session_destroy();
         
       $query = "SELECT * FROM vare WHERE vare_name = '{$_POST['product']}' LIMIT 1";
@@ -40,12 +40,12 @@
         echo "
         <div class='alert alert-danger mt-3 text-center' role='alert'>
           
-          Oops Varen ble ikke funnet
+          Ingen apotek har varen på lager
         </div>
         ";
       }
     }else {
-    // Get the results without considering the post code   
+    // Få resultatene uten å skrive inn postnummeret
     $query = "SELECT * FROM vare WHERE vare_name = '{$_POST['product']}' LIMIT 1";
           $result = mysqli_query($conn, $query);
           
@@ -88,7 +88,7 @@
             echo "
             <div class='alert alert-danger mt-3 text-center' role='alert'>
               
-              Oops Varen ble ikke funnet
+              Ingen apotek har varen på lager
             </div>
             ";
           }
