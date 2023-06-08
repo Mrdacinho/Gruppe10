@@ -1,0 +1,138 @@
+@import url("https://fonts.googleapis.com/css2?family=Alkatra&family=Poppins:wght@500&display=swap");
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+body {
+  font-family: "Poppins", sans-serif;
+}
+.sec1_3_placement_inner_i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 2rem 5rem;
+}
+
+.sec1_3_placement_inner_i h2 {
+  font-weight: 900;
+  scale: 2;
+  margin-bottom: 3rem;
+  color: #00796b;
+}
+.sec1_3_placement_inner_i p {
+  width: 70%;
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  color: gray;
+}
+
+.sec2_3_placement_inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  /* padding: 5rem; */
+}
+
+.sec2_3_placement_inner ul {
+  list-style: none;
+  color: red;
+}
+.sec2_3_placement_inner ul li {
+  padding: 0.5rem 0;
+  color: aquamarine;
+}
+.sec2_3_placement_inner ul li a {
+  color: #00796b;
+}
+
+/* Here is the styling for the tabs */
+
+#tabs-content {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 20rem;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+
+  /* background-color: red; */
+}
+
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  background-color: #ffffff;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+  /* width: 10rem; */
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+  color: #00796b;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+  color: #00796b;
+  border-bottom: 2px solid #00796b;
+}
+
+/* Style the tab content */
+.tabcontent {
+  margin-top: 2rem;
+  display: none;
+  border-top: none;
+  padding: 1rem;
+}
+
+.tabcontent img {
+  width: 10rem;
+  height: 10rem;
+}
+
+.footer-style {
+  background-color: aliceblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+  padding: 0.5rem;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+/* media queries for mobile devices */
+@media only screen and (max-width: 600px) {
+  .sec1_3_placement_inner_i {
+    padding: 2rem 1rem;
+  }
+  .sec1_3_placement_inner_i p {
+    width: 90%;
+  }
+
+  .footer-style {
+    text-align: center;
+  }
+}

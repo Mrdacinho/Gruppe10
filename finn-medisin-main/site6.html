@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="keywords"
+      content="finn, medisin, legemiddel, legemiddelmangel, lagerstatus"
+    />
+    <meta
+      name="description"
+      content="Hjemmeside for å finne medisiner på norske apotek"
+    />
+    <meta
+      name="author"
+      content="Patrik Oskar Graff, Iselin Sannes Stridsklev, Almin Dacic, Joachim Nyland Andersen, Sindre Rødne"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hjemmeside</title>
+    <link rel="stylesheet" href="index.css" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="../BOP3000/Logo/fm_favicon.ico"
+    />
+    <link
+      id=""
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i"
+    />
+    <script></script>
+  </head>
+  <body>
+    <?php include 'php/header.php';?>
+
+    <!-- Seksjon 1 Beskrivelse -->
+    <section class="section1_5">
+      <div class="sec1_5_placement_outer">
+        <div class="sec1_5_placement_inner">
+          <form action="">
+            <div class="sec1_5_form_element1_outer">
+              <label for="">Hvem er du?</label>
+              <div class="sec1_5_form_element1">
+                <input
+                  type="radio"
+                  name="radiobutton"
+                  value="Privatperson"
+                /><label for="">Privatperson</label>
+                <input type="radio" name="radiobutton" value="Apotek" /><label
+                  for=""
+                  >Apotek</label
+                >
+              </div>
+            </div>
+            <div
+              class="sec1_5_form_element2"
+              data-dependency='[{"action":"hide","field":"radiobutton","condition":"equal","value":"Apotek"}]'
+            >
+              <label for="">Navn</label>
+              <input class="sec1_5_form_input" type="text" />
+            </div>
+            <div
+              class="sec1_5_form_element3"
+              data-dependency='[{"action":"hide","field":"radiobutton","condition":"equal","value":"Privatperson"}]'
+            >
+              <label for="">Apoteknavn</label>
+              <input class="sec1_5_form_input" type="text" />
+            </div>
+            <div class="sec1_5_form_element4">
+              <label for="">Epost</label>
+              <input class="sec1_5_form_input" type="text" />
+            </div>
+            <div
+              class="sec1_5_form_element5"
+              data-dependency='[{"action":"hide","field":"radiobutton","condition":"equal","value":"Apotek"}]'
+            >
+              <label for="">Alder</label>
+              <div>
+                <select name="" id="">
+                  <option value="">18-29</option>
+                  <option value="">30-39</option>
+                  <option value="">40-49</option>
+                  <option value="">50-59</option>
+                  <option value="">60-69</option>
+                  <option value="">70+</option>
+                </select>
+              </div>
+            </div>
+            <div
+              class="sec1_5_form_element6"
+              data-dependency='[{"action":"hide","field":"radiobutton","condition":"equal","value":"Apotek"}]'
+            >
+              <label for="">Kjønn</label>
+              <div>
+                <input type="radio" /><label for="">Kvinne</label>
+                <input type="radio" /><label for="">Mann</label>
+              </div>
+            </div>
+            <div class="sec1_5_form_element7">
+              <label for="">Postadresse</label>
+              <input class="sec1_5_form_input" type="text" />
+            </div>
+            <div class="sec1_6_form_element8">
+              <a href="">Endre data</a>
+            </div>
+            <div class="sec1_6_form_element8">
+              <a href="">Slett bruker</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer-style">
+      <div class="footer_placement">
+        <p>
+          finnmedisin.no &copy; 2023<br />Nettsiden benytter
+          <a href="">informasjonskapsler</a>
+        </p>
+      </div>
+      <button>Til toppen</button>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,81 @@
+@import url("https://fonts.googleapis.com/css2?family=Alkatra&family=Poppins:wght@500&display=swap");
+/*CSS for header*/
+header {
+  position: relative;
+  width: 100%;
+  background-color: white;
+  box-shadow: 0 8px 8px -10px #b3b3b3;
+  align-items: center;
+}
+
+.logo_nav_header {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem;
+}
+
+.image-logo {
+  display: block;
+  position: relative;
+  width: 4rem;
+  height: 4rem;
+}
+
+nav ul {
+  display: flex;
+  gap: 2rem;
+  margin-top: 0.8rem;
+}
+
+nav ul li {
+  list-style-type: none;
+  font-family: "Poppins", sans-serif;
+}
+
+nav ul li a {
+  text-decoration: none;
+  font-size: 1rem;
+  color: #333333;
+  font-weight: bold;
+  border-bottom: 1px solid transparent;
+}
+nav ul li a:hover {
+  border-bottom: 1px solid #00796b;
+  color: #00796b;
+}
+
+nav ul li:last-child a {
+  color: #00796b;
+  border-bottom: 1px solid transparent;
+  margin-left: 2rem;
+  padding: 0.4rem 1rem;
+  border-radius: 1.2rem;
+  background-color: #e0f2f1;
+}
+
+nav ul li:last-child:hover a {
+  background-color: #00796b;
+  color: white;
+}
+
+/* media queries for mobile devices */
+@media only screen and (max-width: 600px) {
+  header {
+    /* background-color: rebeccapurple; */
+    width: 100%;
+  }
+  .logo_nav_header {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  nav ul {
+    gap: 0.5rem;
+  }
+  nav ul li a {
+    font-size: 0.8rem;
+  }
+}

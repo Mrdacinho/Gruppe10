@@ -1,0 +1,111 @@
+@import url("https://fonts.googleapis.com/css2?family=Alkatra&family=Poppins:wght@500&display=swap");
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  height: 100vh;
+  font-family: "Poppins", sans-serif;
+}
+section {
+  width: 100%;
+  border-radius: 1rem;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+.sec1_2_placement_inner_i {
+  display: flex;
+  gap: 1rem;
+}
+
+.sec1_2box1 img {
+  height: 20rem;
+  width: 20rem;
+  border-radius: 1rem;
+}
+.description p {
+  font-size: 1.2rem;
+}
+.description span {
+  font-size: 1.2rem;
+  color: #00796b;
+  font-weight: bolder;
+}
+.values-container {
+  /* background-color: #4db3a7; */
+  /* border: 1.5px solid rgba(128, 128, 128, 0.217); */
+  height: 40rem;
+  border-left: 1.5px solid rgba(128, 128, 128, 0.217);
+  padding: 0.9rem;
+  overflow-y: scroll;
+}
+.values-container ul {
+  list-style: none;
+}
+.values-container ul li {
+  border: 1px solid rgba(128, 128, 128, 0.217);
+  margin: 0.5rem 0;
+  padding: 1rem;
+}
+.values-container ul li:hover {
+  box-shadow: 0 3px 10px #00796b42;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transform: scale(1.02);
+  transition: transform 0.3s;
+}
+.footer-style {
+  background-color: aliceblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+  padding: 0.5rem;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+@media only screen and (max-width: 1200px) and (min-width: 1025px) {
+  * {
+    /* background-color: #00796b; */
+  }
+  section {
+    width: 50%;
+  }
+  .sec1_2box1 img {
+    height: 18rem;
+    width: 18rem;
+    border-radius: 1rem;
+  }
+}
+
+/* media queries for mobile devices */
+@media only screen and (max-width: 600px) {
+  section {
+    width: 100%;
+    flex-direction: column;
+    /* background-color: red; */
+    padding-bottom: 5rem;
+  }
+  .sec1_2_placement_inner_i {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .sec1_2box1 img {
+    height: 12rem;
+    width: 12rem;
+    border-radius: 1rem;
+  }
+  .values-container {
+    border: none;
+  }
+}

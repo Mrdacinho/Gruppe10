@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="keywords"
+      content="finn, medisin, legemiddel, legemiddelmangel, lagerstatus"
+    />
+    <meta
+      name="description"
+      content="Hjemmeside for å finne medisiner på norske apotek"
+    />
+    <meta
+      name="author"
+      content="Patrik Oskar Graff, Iselin Sannes Stridsklev, Almin Dacic, Joachim Nyland Andersen, Sindre Rødne"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hjemmeside</title>
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" type="text/css" href="css/header.css" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="../BOP3000/Logo/fm_favicon.ico"
+    />
+    <link
+      id=""
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <?php include 'php/header.php';?>
+
+    <!-- Seksjon 1 skjema spørreskjema -->
+    <section class="section1">
+      <div class="form_placement_outer">
+        <div class="form_placement_inner">
+          <form id="searchForm">
+            <div class="resultater_forelder">
+              <div class="form_q1">
+                <label for="vare">Hvilken vare trenger du? </label>
+                <input
+                  id="vare"
+                  type="text"
+                  placeholder="123456 eller varenavn"
+                  autocomplete="off"
+                  autofocus
+                  required
+                />
+              </div>
+              <div id="search_result">
+                <h3 id="results_title"></h3>
+              </div>
+              <div id="live_search"></div>
+            </div>
+            <div class="mellomrom_linje"></div>
+            <div class="form_q2">
+              <label for="adresse">Postnummer eller sted</label>
+              <input
+                id="adresse"
+                type="number"
+                maxlength="80"
+                pattern="[a-zA-Z0-9\s]+"
+                placeholder="3800 for eksempel"
+              />
+            </div>
+            <p>eller velg fylke</p>
+
+            <div class="fylke_checkbox">
+              <div class="input-row">
+                <input
+                  id="fylke1"
+                  type="checkbox"
+                  value="Innlandet"
+                  name="fylke_checkbox"
+                />
+                <label class="label" for="fylke1">Innlandet</label>
+              </div>
+              <div class="input-row">
+                <input
+                  id="fylke2"
+                  type="checkbox"
+                  value="Møre og Romsdal"
+                  name="fylke_checkbox"
+                />
+                <label class="label" for="fylke2">Møre og Romsdal</label>
+              </div>
+              <div class="input-row">
+                <input
+                  id="fylke3"
+                  type="checkbox"
+                  value="Norland"
+                  name="fylke_checkbox"
+                />
+                <label class="label" for="fylke3">Norland</label>
+              </div>
+              <div class="input-row">
+                <input
+                  id="fylke4"
+                  type="checkbox"
+                  value="Oslo"
+                  name="fylke_checkbox"
+                />
+                <label class="label" for="fylke4">Oslo</label>
+              </div>
+              <div class="input-row">
+                <input
+                  id="fylke5"
+                  type="checkbox"
+                  value="Rogaland"
+                  name="fylke_checkbox"
+                />
+                <label class="label" for="fylke5">Rogaland</label>
+              </div>
+              <div class="input-row">
+                <input
+                  id="fylke6"
+                  type="checkbox"
+                  value="Vestfold og Telemark"
+                  name="fylke_checkbox"
+                />
+                <label class="label" for="fylke6">Vestfold og Telemark</label>
+              </div>
+              <div class="input-row">
+                <input
+                  id="fylke7"
+                  type="checkbox"
+                  value="Troms og Finnmark"
+                  name="fylke_checkbox"
+                />
+                <label class="label" for="fylke7">Troms og Finnmark</label>
+              </div>
+              <div class="input-row">
+                <input
+                  id="fylke8"
+                  type="checkbox"
+                  value="Trøndelag"
+                  name="fylke_checkbox"
+                />
+                <label class="label" for="fylke8">Trøndelag</label>
+              </div>
+              <div class="input-row">
+                <input
+                  id="fylke9"
+                  type="checkbox"
+                  value="Vestland"
+                  name="fylke_checkbox"
+                />
+                <label class="label" for="fylke9">Vestland</label>
+              </div>
+              <div class="input-row">
+                <input
+                  id="fylke10"
+                  type="checkbox"
+                  value="Viken"
+                  name="fylke_checkbox"
+                />
+                <label class="label" for="fylke10">Viken</label>
+              </div>
+            </div>
+
+            <div class="mellomrom_linje"></div>
+
+            <p>Velg type apotek</p>
+
+            <div class="apotektype_checkbox">
+              <div class="input-row">
+                <input
+                  id="fysisk_apo"
+                  type="checkbox"
+                  value="Fysiske apotek"
+                  name="apotektype_checkbox"
+                />
+                <label class="label" for="fysisk_apo">Fysiske apotek</label>
+              </div>
+              <div class="input-row">
+                <input
+                  id="nett_apo"
+                  type="checkbox"
+                  value="Nettapotek"
+                  name="apotektype_checkbox"
+                />
+                <label class="label" for="nett_apo">Nettapotek</label>
+              </div>
+            </div>
+
+            <div class="search_placement">
+              <input class="search_button" type="submit" value="SØK" />
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seksjon 2 statistikk -->
+    <section class="section2">
+      <div class="sec2_placement_outer">
+        <div class="sec2_placement_inner">
+          <div class="sec2_inner_grid">
+            <div class="sec2box">
+              <h1 class="h1text_sec2box">100000+</h1>
+              <p class="ptext_sec2box">Besøk på nettsiden</p>
+            </div>
+            <div class="sec2box">
+              <h1 class="h1text_sec2box">25s</h1>
+              <p class="ptext_sec2box">for å få resultat</p>
+            </div>
+            <div class="sec2box">
+              <h1 class="h1text_sec2box">1046</h1>
+              <p class="ptext_sec2box">Lagerstatus på antall apotek</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seksjon 3 samarbeidspartnere -->
+    <section class="section3">
+      <div class="sec3_placement_outer">
+        <p class="p_sec3">Samarbeider med</p>
+        <div class="sec3_placement_inner">
+          <div class="sec3_inner_grid">
+            <div class="sec3box">
+              <div class="logo_container">
+                <img src="/Logo/A1_logo.png" alt="Apotek1" width="" height="" />
+              </div>
+            </div>
+            <div class="sec3box">
+              <div class="logo_container">
+                <img
+                  src="/Logo/Bootsapotek_logo.png"
+                  alt="Bootsapotek"
+                  width=""
+                  height=""
+                />
+              </div>
+            </div>
+            <div class="sec3box">
+              <div class="logo_container">
+                <img
+                  src="/Logo/Farmasie_logo.png"
+                  alt="Farmasiet"
+                  width=""
+                  height=""
+                />
+              </div>
+            </div>
+            <div class="sec3box">
+              <div class="logo_container">
+                <img
+                  src="/Logo/Vitusapotek_logo.png"
+                  alt="Vitusapotek"
+                  width=""
+                  height=""
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer-style">
+      <div class="footer_placement">
+        <p>
+          finnmedisin.no &copy; 2023<br />Nettsiden benytter
+          <a href="">informasjonskapsler</a>
+        </p>
+      </div>
+      <button>Til toppen</button>
+    </footer>
+    <script src="js/main.js" async defer></script>
+  </body>
+</html>
