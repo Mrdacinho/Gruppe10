@@ -47,9 +47,9 @@ $(document).ready(function () {
   // Add en event handler til checkbox group 
   checkboxGroup.change(function () {
     if (checkboxGroup.is(":checked")) {
-      // At least one checkbox is checked, disable the input field
+      // Minst en checkbox er merket, deaktiver inndatafeltet
       inputField.prop("disabled", true);
-      // Get the selected option values
+      // Få de valgte alternativverdiene
       let selectedValue = $(this).val();
 
       //push verdi til array
@@ -60,7 +60,7 @@ $(document).ready(function () {
     }
   });
 
-  // Add an event handler to the form submission
+  // Add en event handler til skjemainnsending
   $("#searchForm").submit(function (event) {
     event.preventDefault(); // Forhindre standardinnsending av skjema
 
