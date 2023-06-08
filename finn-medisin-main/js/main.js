@@ -32,22 +32,22 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
-  //get the data if it's selected
-  // Get references to the checkbox group and input field
+  // Få dataene hvis de er valgt
+  // Få referanser til checkbox og input
   var checkboxGroup = $("input[name='fylke_checkbox']");
 
   var inputField = $("#adresse");
   let values = [];
 
-  // Initially disable the input field if any checkbox is checked on page load
+  // Deaktiver først inndatafeltet hvis noen avkrysningsboks er merket ved sideinnlasting
   if (checkboxGroup.is(":checked")) {
     inputField.prop("disabled", true);
   }
 
-  // Add an event handler to the checkbox group
+  // Add event handler til checkbox group
   checkboxGroup.change(function () {
     if (checkboxGroup.is(":checked")) {
-      // At least one checkbox is checked, disable the input field
+      // Minst en avmerkingsboks er merket, deaktiver inndatafeltet
       inputField.prop("disabled", true);
       // Get the selected option values
       let selectedValue = $(this).val();
@@ -62,20 +62,21 @@ $(document).ready(function () {
 
   // Add an event handler to the form submission
   $("#searchForm").submit(function (event) {
-    event.preventDefault(); // Prevent the default form submission
+    event.preventDefault(); // Forhindre standardinnsending av skjema
 
     // Retrieve form data
     var product = $("#vare").val().trim();
     var location = parseInt($("#adresse").val().trim());
 
-    //here, we check what kind of request to sent for processing
+    //Sjekker hva slags forespørsel som skal sendes til behandling
 
     if (values.length === 0) {
       //check if Zip Code or place is specified
       if (location !== null && location > 0) {
-        // Perform an AJAX request to submit the form data
+        // Utfør en AJAX-forespørsel for å sende inn skjemadataene
+
         $.ajax({
-          url: "./php/search.php", // Replace with the URL to handle the form submission
+          url: "./php/search.php", // Erstatt med URL-en for å håndtere skjemainnsendingen
           method: "POST",
           data: {
             product: product,
@@ -95,15 +96,15 @@ $(document).ready(function () {
           },
           error: function (xhr, status, error) {
             // Handle the error response
-            console.error("Form submission failed.");
+            console.error("Skjemainnsending mislyktes.");
             console.error("Error:", error);
-            // Perform any error handling or display error messages
+            // Utfører eventuell feilhåndtering eller vis feilmeldinger
           },
         });
       } else {
-        // Perform an AJAX request to submit the form data
+        // Utfører en AJAX-forespørsel for å sende inn skjemadataene
         $.ajax({
-          url: "./php/search.php", // Replace with the URL to handle the form submission
+          url: "./php/search.php", // Erstatt med URL-en for å håndtere skjemainnsendingen
           method: "POST",
           data: {
             product: product,
@@ -123,12 +124,12 @@ $(document).ready(function () {
           },
           error: function (xhr, status, error) {
             // Handle the error response
-            console.error("Form submission failed.");
+            console.error("Skjemainnsending mislyktes.");
             console.error("Error:", error);
-            // Perform any error handling or display error messages
+            // Utføerer eventuell feilhåndtering eller vis feilmeldinger
           },
         });
-        // alert("You must enter postal code or a place to continue");
+        // alert("Du må skrive inn postnummer eller et sted for å fortsette");
       }
     } else {
     }
