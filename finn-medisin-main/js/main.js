@@ -49,22 +49,22 @@ $(document).ready(function () {
     if (checkboxGroup.is(":checked")) {
       // Minst en avmerkingsboks er merket, deaktiver inndatafeltet
       inputField.prop("disabled", true);
-      // Get the selected option values
+      // Få selected option values
       let selectedValue = $(this).val();
 
-      //push value to the array
+      //push value til array
       values.push(selectedValue);
     } else {
-      // No checkbox is checked, enable the input field
+      // Ingen checkbox er checked, enable input
       inputField.prop("disabled", false);
     }
   });
 
-  // Add an event handler to the form submission
+  // Legg til en event handler i skjemainnsendingen
   $("#searchForm").submit(function (event) {
     event.preventDefault(); // Forhindre standardinnsending av skjema
 
-    // Retrieve form data
+    // Hente fra data
     var product = $("#vare").val().trim();
     var location = parseInt($("#adresse").val().trim());
 
