@@ -80,7 +80,7 @@
                         $_SESSION['values_array'] = $values_array;
 
               }else{
-                echo '<br><br>Oops Varen ble ikke funnet';
+                echo '<br><br>Ingen apotek har varen tilgjengelig';
               }
             
             }
