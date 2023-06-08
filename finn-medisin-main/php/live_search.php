@@ -22,7 +22,7 @@
     } else {
       echo "
       <div class='alert alert-danger mt-3 text-center' role='alert'>
-        Ingen apotek har varen på lager
+        Oops Varen ble ikke funnet
       </div>
       ";
     }
