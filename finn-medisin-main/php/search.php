@@ -57,7 +57,7 @@
             
 
 
-            echo '<h4>'.'Results for  <span style="color:#00796b;">'.$_POST['product'].'</span> in'.'</h4>';
+            echo '<h4>'.'Resultater for  <span style="color:#00796b;">'.$_POST['product'].'</span> i'.'</h4>';
             while ($res = mysqli_fetch_array($result)) {
               
             //  WHERE butikkvare.vare_id= $res['vare_id']
