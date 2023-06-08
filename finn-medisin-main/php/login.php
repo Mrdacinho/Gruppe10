@@ -1,35 +1,35 @@
 <?php
 require_once "db.php";
-// Retrieve user input from a login form
+// Henter user input fra login 
 $email = $_POST['email'];
 $password = $_POST['password'];
 
 
-// Prepare and execute the SQL query
+// SQL query
 $sql = "SELECT * FROM users WHERE email = '$email'";
 $result = $conn->query($sql);
 
-// Check if a matching user was found
+// Sjekker hvis bruker som matcher er funnet
 // if (!empty($result) && $result->num_rows > 0) {
 
 
-    // Check for errors in the query execution
+    //  Sjekker for feil i query execution
 if (!$result) {
     throw new Exception("Query failed: " . $conn->error);
 }
 
-// Check if a matching user was found
+// Sjeker hvis matchet bruker er funnet
 if ($result->num_rows ==1) {
     $row = $result->fetch_assoc();
     //Verify the password
     if (md5('pass9090') == $row['password']) {
-        // Password is correct, log in the user
+        // Passord er korrekt, loggin bruker
         session_start();
         $_SESSION['user_id'] = $row['ID'];
         $_SESSION['username'] = $row['username'];
         $_SESSION['email'] = $row['email'];
         // echo "Login successful! "."Welcome ".$row['username'];
-        // Redirect to the home page or any other desired location
+        // Omdiriger til hjemmesiden eller et annet ønsket sted
         
         header("Location: home.php");
         exit();
@@ -42,7 +42,7 @@ if ($result->num_rows ==1) {
     throw new Exception("User not found!");
 }
 
-// Close the database connection
+// Lukk database connection
 $conn->close();
 
 ?>
