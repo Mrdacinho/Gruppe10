@@ -17,7 +17,7 @@
        
       if (mysqli_num_rows($result) > 0) {
 
-        echo '<h4>'.'Results for  <span style="color:#00796b;">'.$_POST['product'].'</span> in'.'</h4>'.$_POST['location'];
+        echo '<h4>'.'Resultater  <span style="color:#00796b;">'.$_POST['product'].'</span> in'.'</h4>'.$_POST['location'];
         while ($res = mysqli_fetch_array($result)) {
           
           $shopQuery = "SELECT * FROM butikk INNER JOIN butikkvare on butikk.butikk_id=butikkvare.butikk_id WHERE butikkvare.vare_id = '".$res['vare_id']."' AND butikk.butikk_postkode = '".$_POST['location']."'  LIMIT 10";
@@ -32,7 +32,7 @@
                     }
                     echo '</ul>';
            }else{
-                echo '<br><br>Ingen apotek har varen tilgjengelig';
+                echo '<br><br>'Ingen apotek har varen tilgjengelig';
               }
         
         }
