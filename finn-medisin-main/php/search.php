@@ -32,7 +32,7 @@
                     }
                     echo '</ul>';
            }else{
-                echo '<br><br>Oops Varen ble ikke funnet';
+                echo '<br><br>Ingen apotek har varen tilgjengelig';
               }
         
         }
