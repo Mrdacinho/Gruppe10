@@ -32,51 +32,50 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
-  // Få dataene hvis de er valgt
-  // Få referanser til checkbox og input
+  //get the data if it's selected
+  // Get references to the checkbox group and input field
   var checkboxGroup = $("input[name='fylke_checkbox']");
 
   var inputField = $("#adresse");
   let values = [];
 
-  // Deaktiver først inndatafeltet hvis noen avkrysningsboks er merket ved sideinnlasting
+  // Initially disable the input field if any checkbox is checked on page load
   if (checkboxGroup.is(":checked")) {
     inputField.prop("disabled", true);
   }
 
-  // Add event handler til checkbox group
+  // Add an event handler to the checkbox group
   checkboxGroup.change(function () {
     if (checkboxGroup.is(":checked")) {
-      // Minst en avmerkingsboks er merket, deaktiver inndatafeltet
+      // At least one checkbox is checked, disable the input field
       inputField.prop("disabled", true);
-      // Få selected option values
+      // Get the selected option values
       let selectedValue = $(this).val();
 
-      //push value til array
+      //push value to the array
       values.push(selectedValue);
     } else {
-      // Ingen checkbox er checked, enable input
+      // No checkbox is checked, enable the input field
       inputField.prop("disabled", false);
     }
   });
 
-  // Legg til en event handler i skjemainnsendingen
+  // Add an event handler to the form submission
   $("#searchForm").submit(function (event) {
-    event.preventDefault(); // Forhindre standardinnsending av skjema
+    event.preventDefault(); // Prevent the default form submission
 
-    // Hente fra data
+    // Retrieve form data
     var product = $("#vare").val().trim();
     var location = parseInt($("#adresse").val().trim());
 
-    //Sjekker hva slags forespørsel som skal sendes til behandling
+    //here, we check what kind of request to sent for processing
 
     if (values.length === 0) {
       //check if Zip Code or place is specified
       if (location !== null && location > 0) {
-        // Utfør en AJAX-forespørsel for å sende inn skjemadataene
-
+        // Perform an AJAX request to submit the form data
         $.ajax({
-          url: "./php/search.php", // Erstatt med URL-en for å håndtere skjemainnsendingen
+          url: "./php/search.php", // Replace with the URL to handle the form submission
           method: "POST",
           data: {
             product: product,
@@ -96,15 +95,15 @@ $(document).ready(function () {
           },
           error: function (xhr, status, error) {
             // Handle the error response
-            console.error("Skjemainnsending mislyktes.");
+            console.error("Form submission failed.");
             console.error("Error:", error);
-            // Utfører eventuell feilhåndtering eller vis feilmeldinger
+            // Perform any error handling or display error messages
           },
         });
       } else {
-        // Utfører en AJAX-forespørsel for å sende inn skjemadataene
+        // Perform an AJAX request to submit the form data
         $.ajax({
-          url: "./php/search.php", // Erstatt med URL-en for å håndtere skjemainnsendingen
+          url: "./php/search.php", // Replace with the URL to handle the form submission
           method: "POST",
           data: {
             product: product,
@@ -124,12 +123,12 @@ $(document).ready(function () {
           },
           error: function (xhr, status, error) {
             // Handle the error response
-            console.error("Skjemainnsending mislyktes.");
+            console.error("Form submission failed.");
             console.error("Error:", error);
-            // Utføerer eventuell feilhåndtering eller vis feilmeldinger
+            // Perform any error handling or display error messages
           },
         });
-        // alert("Du må skrive inn postnummer eller et sted for å fortsette");
+        // alert("You must enter postal code or a place to continue");
       }
     } else {
     }
