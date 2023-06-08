@@ -5,11 +5,11 @@
    
   if (isset($_POST['product']) && isset($_POST['location']) ) {
 
-    // Clear session slik at vi ikke har utvalget av verdier til å vise enkeltelementet i stedet
-    // Fjern alle session variabler
+    //clear the session so we don't have the array of values to show the single item instead
+    // remove all session variables
       session_unset();
 
-      // destroy session
+      // destroy the session
       session_destroy();
         
       $query = "SELECT * FROM vare WHERE vare_name = '{$_POST['product']}' LIMIT 1";
@@ -17,7 +17,7 @@
        
       if (mysqli_num_rows($result) > 0) {
 
-        echo '<h4>'.'Resultater  <span style="color:#00796b;">'.$_POST['product'].'</span> in'.'</h4>'.$_POST['location'];
+        echo '<h4>'.'Results for  <span style="color:#00796b;">'.$_POST['product'].'</span> in'.'</h4>'.$_POST['location'];
         while ($res = mysqli_fetch_array($result)) {
           
           $shopQuery = "SELECT * FROM butikk INNER JOIN butikkvare on butikk.butikk_id=butikkvare.butikk_id WHERE butikkvare.vare_id = '".$res['vare_id']."' AND butikk.butikk_postkode = '".$_POST['location']."'  LIMIT 10";
@@ -32,7 +32,7 @@
                     }
                     echo '</ul>';
            }else{
-                echo '<br><br>'Ingen apotek har varen tilgjengelig';
+                echo '<br><br>Oops Varen ble ikke funnet';
               }
         
         }
@@ -40,12 +40,12 @@
         echo "
         <div class='alert alert-danger mt-3 text-center' role='alert'>
           
-          Ingen apotek har varen på lager
+          Oops Varen ble ikke funnet
         </div>
         ";
       }
     }else {
-    // Få resultatene uten å skrive inn postnummeret
+    // Get the results without considering the post code   
     $query = "SELECT * FROM vare WHERE vare_name = '{$_POST['product']}' LIMIT 1";
           $result = mysqli_query($conn, $query);
           
@@ -80,7 +80,7 @@
                         $_SESSION['values_array'] = $values_array;
 
               }else{
-                echo '<br><br>Ingen apotek har varen tilgjengelig';
+                echo '<br><br>Oops Varen ble ikke funnet';
               }
             
             }
@@ -88,7 +88,7 @@
             echo "
             <div class='alert alert-danger mt-3 text-center' role='alert'>
               
-              Ingen apotek har varen på lager
+              Oops Varen ble ikke funnet
             </div>
             ";
           }
