@@ -101,7 +101,7 @@ $(document).ready(function () {
           },
         });
       } else {
-        // Perform an AJAX request to submit the form data
+        // Utfør en AJAX-forespørsel for å sende inn skjemadataene
         $.ajax({
           url: "./php/search.php", // Erstatt med URL-en for å håndtere skjemainnsendingen
           method: "POST",
@@ -122,7 +122,7 @@ $(document).ready(function () {
             });
           },
           error: function (xhr, status, error) {
-            // Handle the error response
+            // Håndter feilreaksjonen
             console.error("Form submission failed.");
             console.error("Error:", error);
             // Utfør eventuell feilhåndtering eller vis feilmeldinger
