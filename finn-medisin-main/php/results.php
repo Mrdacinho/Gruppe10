@@ -1,4 +1,4 @@
-<?php
+<<?php
   require_once "db.php";
 
   $query = "SELECT vare_id,vare_name FROM vare LIMIT 10";
