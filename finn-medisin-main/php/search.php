@@ -32,7 +32,7 @@
                     }
                     echo '</ul>';
            }else{
-                echo '<br><br>Oops Varen ble ikke funnet';
+                echo '<br><br>Ingen apotek har varen på lager';
               }
         
         }
@@ -40,7 +40,7 @@
         echo "
         <div class='alert alert-danger mt-3 text-center' role='alert'>
           
-          Oops Varen ble ikke funnet
+          Ingen apotek har varen på lager
         </div>
         ";
       }
@@ -80,7 +80,7 @@
                         $_SESSION['values_array'] = $values_array;
 
               }else{
-                echo '<br><br>Oops Varen ble ikke funnet';
+                echo '<br><br>Ingen apotek har varen på lager';
               }
             
             }
@@ -88,7 +88,7 @@
             echo "
             <div class='alert alert-danger mt-3 text-center' role='alert'>
               
-              Oops Varen ble ikke funnet
+              Ingen apotek har varen på lager
             </div>
             ";
           }
